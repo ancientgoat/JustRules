@@ -1,0 +1,37 @@
+{
+  "rule": {
+	"name": "X1",
+	"description": "y1",
+	"condition": {
+	  "if": "MILK > 1.11 * 1 + (T(Math).PI)",
+	  "then": {
+		"rule": {
+		  "name": "X2",
+		  "description": "y2",
+		  "condition": {
+			"if": "MILK < 3",
+			"then": {
+			  "action": {
+				"actiontype": "PRINT",
+				"message": "********* We Have a (2)THEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			  }
+			},
+			"else": {
+			  "action": {
+				"actiontype": "PRINT",
+				"message": "********* We Have a (2)ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			  }
+			}
+		  }
+		}
+	  },
+	  "else": {
+		"action": {
+		  "actiontype": "PRINT",
+		  "message": "********* We Have a (1)ELSE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		}
+	  }
+	}
+  }
+}
+

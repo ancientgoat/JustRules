@@ -1,0 +1,81 @@
+{
+  "rules": {
+	"rule": [
+	  {
+		"name": "COKE_RULE_00001",
+		"description": "Are things really better?  Or are you just hyped up?",
+		"condition": {
+		  "if": "Name == 'Fred' || Name == 'Betty'"
+		}
+	  },
+	  {
+		"name": "COKE_RULE_00002",
+		"description": "Are things really better?  Or are you hyped up on caffeine?",
+		"condition": {
+		  "if": "Name == 'Betty'",
+		  "then": {
+			"actions": {
+			  "action": [
+				{
+				  "actiontype": "REF",
+				  "actionref": "COKE_RULE_00002_truE"
+				}
+			  ]
+			}
+		  },
+		  "else": {
+			"action": {
+			  "actiontype": "REF",
+			  "actionref": "COKE_ACTION_00002_falSE"
+			}
+		  }
+		}
+	  },
+	  {
+		"name": "COKE_RULE_00003",
+		"description": "Are things really better?  Or are you hyped up on sugar?",
+		"condition": {
+		  "if": "COKE_RULE_00001",
+		  "then": {
+			"rule": {
+			  "condition": {
+				"ruleref": "COKE_RULE_00002",
+				"then": {
+				  "action": {
+					"actiontype": "REF",
+					"actionref": "COKE_ACTION_00003_true_true"
+				  }
+				},
+				"else": {
+				  "actions": {
+					"action": [
+					  {
+						"actiontype": "REF",
+						"actionref": "COKE_ACTION_00003_TRUE_FALSE"
+					  },
+					  {
+						"actiontype": "REF",
+						"actionref": "LOG_ERROR"
+					  },
+					  {
+						"actiontype": "REF",
+						"actionref": "LOG_WARN"
+					  }
+					]
+				  }
+				}
+			  }
+			}
+		  },
+		  "else": {
+			"action": {
+			  "actiontype": "REF",
+			  "actionref": "COKE_ACTION_00003_FALSE"
+			}
+		  }
+		}
+	  }
+	]
+  }
+}
+
