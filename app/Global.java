@@ -12,11 +12,11 @@ public class Global extends GlobalSettings {
 
     @Override
     public void onStart(Application app) {
-	context = new AnnotationConfigApplicationContext(AppConf.class, DataConf.class);
+        context = new AnnotationConfigApplicationContext(AppConf.class, DataConf.class);
     }
 
     @Override
     public <A> A getControllerInstance(Class<A> clazz) {
-	return context.getBean(clazz);
+        return context.getBean(clazz);
     }
 }

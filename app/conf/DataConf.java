@@ -19,33 +19,33 @@ import javax.sql.DataSource;
 public class DataConf {
     @Bean
     public DataSource dataSource() {
-	final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	final play.Configuration conf = Play.application().configuration();
-	dataSource.setDriverClassName(conf.getString("db.default.driver"));
-	dataSource.setUrl(conf.getString("db.default.url"));
-	dataSource.setUsername(conf.getString("db.default.user"));
-	dataSource.setPassword(conf.getString("db.default.password"));
-	return dataSource;
+        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        final play.Configuration conf = Play.application().configuration();
+        dataSource.setDriverClassName(conf.getString("db.default.driver"));
+        dataSource.setUrl(conf.getString("db.default.url"));
+        dataSource.setUsername(conf.getString("db.default.user"));
+        dataSource.setPassword(conf.getString("db.default.password"));
+        return dataSource;
     }
 
     @Bean
     public EntityManagerFactory entityManagerFactory() {
-	final HibernateJpaVendorAdapter hibernateAdapter = new HibernateJpaVendorAdapter();
-	hibernateAdapter.setShowSql(false);
-	hibernateAdapter.setGenerateDdl(true);
-	
-	final LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-	entityManagerFactory.setPackagesToScan("entity");
-	entityManagerFactory.setJpaVendorAdapter(hibernateAdapter);
-	entityManagerFactory.setDataSource(dataSource());
-	entityManagerFactory.afterPropertiesSet();
-	
-	return entityManagerFactory.getObject();
+        final HibernateJpaVendorAdapter hibernateAdapter = new HibernateJpaVendorAdapter();
+        hibernateAdapter.setShowSql(false);
+        hibernateAdapter.setGenerateDdl(true);
+
+        final LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
+        entityManagerFactory.setPackagesToScan("entity");
+        entityManagerFactory.setJpaVendorAdapter(hibernateAdapter);
+        entityManagerFactory.setDataSource(dataSource());
+        entityManagerFactory.afterPropertiesSet();
+
+        return entityManagerFactory.getObject();
     }
 
     @Bean
     public PlatformTransactionManager transactionManager() {
-	return new JpaTransactionManager(entityManagerFactory());
+        return new JpaTransactionManager(entityManagerFactory());
     }
 }
  
