@@ -1,15 +1,20 @@
 package rule.breadcrumbs;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
+import rule.common.JsonMapperHelper;
 import rule.expression.SkExpression;
 
 import java.util.List;
 
 import static rule.breadcrumbs.SkBreadcrumbType.*;
+import static rule.common.JsonMapperHelper.beanToJsonPretty;
 
 /**
  *
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SkBreadcrumbs {
 
 	private List<SkBreadcrumb> crumbs = Lists.newArrayList();
@@ -205,5 +210,10 @@ public class SkBreadcrumbs {
 
 	public SkBreadcrumb getLastCrumb() {
 		return lastCrumb;
+	}
+
+
+	public String toJson(){
+        return JsonMapperHelper.beanToJsonPretty(this);
 	}
 }

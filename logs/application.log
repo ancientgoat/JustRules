@@ -1,108 +1,77 @@
-2016-06-29 19:33:47,461 - [INFO] - from play in pool-4-thread-3 
+2016-06-29 20:03:56,112 - [INFO] - from play in pool-4-thread-7 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2016-06-29 19:33:48,905 - [ERROR] - from application in New I/O worker #1 
-
-
-! @70hhg6c3h - Internal server error, for (GET) [/] ->
-
-play.PlayExceptions$CompilationException: Compilation error[rule.base.SkRule is abstract; cannot be instantiated]
-	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
-	at play.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.7.jar:na]
-	at play.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49) ~[na:na]
-	at play.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44) ~[na:na]
-	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.7.jar:na]
-	at play.PlayReload$.taskFailureHandler(PlayReload.scala:44) ~[na:na]
-	at play.PlayReload$.compileFailure(PlayReload.scala:40) ~[na:na]
-	at play.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17) ~[na:na]
-	at play.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17) ~[na:na]
-	at scala.util.Either$LeftProjection.map(Either.scala:377) ~[scala-library-2.11.7.jar:na]
-	at play.PlayReload$.compile(PlayReload.scala:17) ~[na:na]
-	at play.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:62) ~[na:na]
-	at play.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:62) ~[na:na]
-	at play.runsupport.Reloader.reload(Reloader.scala:295) ~[na:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:122) ~[play_2.11-2.3.10.jar:2.3.10]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.10.jar:2.3.10]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.7.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.7.jar:na]
-
-2016-06-29 19:33:48,966 - [WARN] - from play in New I/O worker #1 
-No application found at invoker init
-
-2016-06-29 19:34:45,501 - [INFO] - from play in play-internal-execution-context-1 
+2016-06-29 20:03:58,986 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/test
 
-2016-06-29 19:34:45,722 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
-Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2efe9819: startup date [Wed Jun 29 19:34:45 MDT 2016]; root of context hierarchy
+2016-06-29 20:03:59,229 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7d3b8776: startup date [Wed Jun 29 20:03:59 MDT 2016]; root of context hierarchy
 
-2016-06-29 19:34:45,966 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
+2016-06-29 20:03:59,437 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
 
-2016-06-29 19:34:46,165 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
+2016-06-29 20:03:59,666 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
 Loaded JDBC driver: com.mysql.jdbc.Driver
 
-2016-06-29 19:34:46,179 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+2016-06-29 20:03:59,682 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
 Building JPA container EntityManagerFactory for persistence unit 'default'
 
-2016-06-29 19:34:46,204 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
+2016-06-29 20:03:59,705 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
 HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
 
-2016-06-29 19:34:46,267 - [INFO] - from org.hibernate.Version in play-internal-execution-context-1 
+2016-06-29 20:03:59,770 - [INFO] - from org.hibernate.Version in play-internal-execution-context-1 
 HHH000412: Hibernate Core {4.3.6.Final}
 
-2016-06-29 19:34:46,268 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
+2016-06-29 20:03:59,771 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
 HHH000206: hibernate.properties not found
 
-2016-06-29 19:34:46,270 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
+2016-06-29 20:03:59,772 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
 HHH000021: Bytecode provider name : javassist
 
-2016-06-29 19:34:46,428 - [INFO] - from org.hibernate.annotations.common.Version in play-internal-execution-context-1 
+2016-06-29 20:03:59,981 - [INFO] - from org.hibernate.annotations.common.Version in play-internal-execution-context-1 
 HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
 
-2016-06-29 19:34:46,479 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
+2016-06-29 20:04:00,034 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
 
-2016-06-29 19:34:46,578 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
+2016-06-29 20:04:00,139 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
 HHH000397: Using ASTQueryTranslatorFactory
 
-2016-06-29 19:34:46,623 - [INFO] - from org.hibernate.validator.internal.util.Version in play-internal-execution-context-1 
+2016-06-29 20:04:00,183 - [INFO] - from org.hibernate.validator.internal.util.Version in play-internal-execution-context-1 
 HV000001: Hibernate Validator 5.0.3.Final
 
-2016-06-29 19:34:46,886 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-29 20:04:00,467 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000228: Running hbm2ddl schema update
 
-2016-06-29 19:34:46,886 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-29 20:04:00,467 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000102: Fetching database metadata
 
-2016-06-29 19:34:46,891 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-29 20:04:00,473 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000396: Updating schema
 
-2016-06-29 19:34:46,905 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
 HHH000261: Table found: test.rule
 
-2016-06-29 19:34:46,905 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
 HHH000037: Columns: [rule, rulename, id]
 
-2016-06-29 19:34:46,905 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
 HHH000108: Foreign keys: []
 
-2016-06-29 19:34:46,905 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
 HHH000126: Indexes: [primary]
 
-2016-06-29 19:34:46,906 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-29 20:04:00,488 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000232: Schema update complete
 
-2016-06-29 19:34:46,947 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+2016-06-29 20:04:00,527 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
 Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-2016-06-29 19:34:47,203 - [INFO] - from play in play-internal-execution-context-1 
+2016-06-29 20:04:00,605 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
+
+2016-06-29 20:04:00,808 - [INFO] - from akka.event.slf4j.Slf4jLogger in play-akka.actor.default-dispatcher-5 
+Slf4jLogger started
 

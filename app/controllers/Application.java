@@ -8,6 +8,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import rule.base.SkRuleMaster;
 import rule.base.SkRules;
+import rule.breadcrumbs.SkBreadcrumbs;
 import rule.common.JsonMapperHelper;
 import rule.run.SkRuleRunner;
 import service.JrRuleService;
@@ -28,7 +29,7 @@ public class Application extends Controller {
     public Result index() {
         session().clear(); // reset saved login
         java.util.List<String> ruleNames = ruleService.getRuleNames();
-        return ok(index.render(Form.form(model.JrRuleForm.class), ruleNames));
+        return ok(index.render(Form.form(model.JrRuleForm.class), ruleNames, null));
     }
 
     public Result doRuleAction() {
@@ -55,7 +56,7 @@ public class Application extends Controller {
         play.data.Form<model.JrRuleForm> form = play.data.Form.form(model.JrRuleForm.class).bindFromRequest();
         if (form.hasErrors()) {
             List<String> ruleNames = ruleService.getRuleNames();
-            return badRequest(index.render(form, ruleNames));
+            return badRequest(index.render(form, ruleNames, null));
         } else {
             JrRuleForm ruleForm = form.get();
             entity.JrRule rule = JrRuleTranslate.toJrRule(ruleForm);
@@ -68,16 +69,21 @@ public class Application extends Controller {
         play.data.Form<model.JrRuleForm> form = play.data.Form.form(model.JrRuleForm.class).bindFromRequest();
         if (form.hasErrors()) {
             List<String> ruleNames = ruleService.getRuleNames();
-            return badRequest(index.render(form, ruleNames));
+            return badRequest(index.render(form, ruleNames, null));
         } else {
             JrRuleForm ruleForm = form.get();
             String ruleJson = ruleForm.getRule();
             SkRules rules = JsonMapperHelper.buildRules(ruleJson);
             SkRuleMaster master = new SkRuleMaster.Builder()
                             .addRules(rules).build();
-            master.getRuleRunner().runRuleRef(ruleForm.getRuleName());
+            SkRuleRunner runner = master.getRuleRunner();
+            runner.runRuleRef(ruleForm.getRuleName());
+            SkBreadcrumbs breadcrumbs = runner.getBreadcrumbs();
+            String breadcrumbJson = breadcrumbs.toJson();
+            // return redirect(routes.Application.index());
 
-            return redirect(routes.Application.index());
+            List<String> ruleNames = ruleService.getRuleNames();
+            return ok(index.render(Form.form(model.JrRuleForm.class), ruleNames, breadcrumbJson));
         }
     }
 }
