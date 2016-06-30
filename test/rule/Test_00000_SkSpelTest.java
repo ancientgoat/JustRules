@@ -1,6 +1,5 @@
 package rule;
 
-import com.sun.tools.example.debug.expr.ExpressionParser;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.expression.Expression;

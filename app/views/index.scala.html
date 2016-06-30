@@ -11,23 +11,25 @@
     </div>
 
     <div class="container">
-        <div class="ruleContainer">
-        @helper.form(action = routes.Application.doRuleAction(), 'class -> "well form-horizontal") {
-            @helper.inputText(ruleForm("ruleName"), '_label -> "Rule Name")
-            @helper.textarea(ruleForm("rule"), '_label -> "Rule", 'cols -> 450, 'rows -> 20, 'class -> "input-xxlarge")
-            <div class="controls">
-                <input type="submit" name="action" value="Save" class="btn btn-primary"/>
-                <input type="submit" name="action" value="Run" class="btn btn-primary"/>
-            </div>
-        }
-        </div>
-
-        <div class="ruleNameContainer">
-            <ul id="ruleNames">
-            @for(name <- ruleNames) {
-                <li>@name</li>
+        <div class="formContainer">
+            <div class="ruleContainer">
+            @helper.form(action = routes.Application.doRuleAction(), 'class -> "well form-horizontal") {
+                @helper.inputText(ruleForm("ruleName"), '_label -> "Rule Name")
+                @helper.textarea(ruleForm("rule"), '_label -> "Rule", 'cols -> 450, 'rows -> 20, 'class -> "input-xxlarge")
+                <div class="controls">
+                    <input type="submit" name="action" value="Save" class="btn btn-primary"/>
+                    <input type="submit" name="action" value="Run" class="btn btn-primary"/>
+                </div>
             }
-            </ul>
+            </div>
+
+            <div class="ruleNameContainer">
+                <ul id="ruleNames">
+                @for(name <- ruleNames) {
+                    <li>@name</li>
+                }
+                </ul>
+            </div>
         </div>
 
         <div class="breadcrumbContainer">

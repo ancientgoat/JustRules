@@ -17,5 +17,5 @@ public interface JrRuleService {
     /**
      * Persist a rule to the database.
      */
-    void save(JrRule inRule);
+    JrRule save(JrRule inRule);
 }

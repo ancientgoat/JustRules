@@ -21,8 +21,9 @@ public class JrRuleServiceImpl implements JrRuleService {
 
     @Override
     @Transactional
-    public void save(JrRule inRule) {
+    public JrRule save(JrRule inRule) {
         em.persist(inRule);
+        return inRule;
     }
 
     @Override

@@ -13,17 +13,22 @@ pre.small {
 
 .ruleContainer {
     float: left;
-    border: solid black 1px;
     padding-top: 5px;
+    display: block;
 }
 
 .ruleNameContainer {
     float: right;
-    border: solid black 1px;
+    position: relative;
+    left: 10pt;
+    border: solid lightgray 1px;
+    padding: 10pt;
 }
 
 .breadcrumbContainer {
-    background: yellow;
     display: block;
     clear: both;
+}
+
+.formContainer {
 }
