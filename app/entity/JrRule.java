@@ -1,5 +1,10 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
 /**
  *
  */
@@ -7,13 +12,15 @@ package entity;
 @javax.persistence.Table(name = "rule")
 public class JrRule {
 
-    @javax.persistence.Id
-    @javax.persistence.GeneratedValue
-    @javax.persistence.Column(name="id")
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "rulename")
     private String ruleName;
 
+    @Lob
     private String rule;
 
     public Long getId() {

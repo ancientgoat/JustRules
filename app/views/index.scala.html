@@ -11,28 +11,32 @@
     </div>
 
     <div class="container">
-        <br/><hr/>
-        <ul id="ruleNames">
-        @for(name <- ruleNames) {
-            <li>@name</li>
-        }
-
-        </ul>
-        <hr/>
-        <pre>
-        @breadcrumbs
-        </pre>
-        <hr/>
-
+        <div class="ruleContainer">
         @helper.form(action = routes.Application.doRuleAction(), 'class -> "well form-horizontal") {
             @helper.inputText(ruleForm("ruleName"), '_label -> "Rule Name")
-            @helper.textarea(ruleForm("data"), '_label -> "Data (not persisted)")
-            @helper.textarea(ruleForm("rule"), '_label -> "Rule")
+            @helper.textarea(ruleForm("rule"), '_label -> "Rule", 'cols -> 450, 'rows -> 20, 'class -> "input-xxlarge")
             <div class="controls">
                 <input type="submit" name="action" value="Save" class="btn btn-primary"/>
                 <input type="submit" name="action" value="Run" class="btn btn-primary"/>
             </div>
         }
-    </div>
+        </div>
 
+        <div class="ruleNameContainer">
+            <ul id="ruleNames">
+            @for(name <- ruleNames) {
+                <li>@name</li>
+            }
+            </ul>
+        </div>
+
+        <div class="breadcrumbContainer">
+            <hr/>
+            ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+            <pre class="small">
+            @breadcrumbs
+            </pre>
+            <hr/>
+        </div>
+    </div>
 }

@@ -1,11 +1,21 @@
 package service;
 
+import entity.JrRule;
+
+import java.util.List;
+
 /**
- *
+ * All database methods regarding JrRule(s).
  */
 public interface JrRuleService {
 
-    java.util.List<String> getRuleNames();
+    /**
+     * Fetch 'all' rule names from the database.
+     */
+    List<String> getRuleNames();
 
-    void save(entity.JrRule inRule);
+    /**
+     * Persist a rule to the database.
+     */
+    void save(JrRule inRule);
 }

@@ -1,4 +1,0 @@
-error.required=This field is required
-error.invalid.amount=Betting Amount should be a number between 1 and 10,000,000
-error.invalid.odds=Betting Odds should be a number between 2 and 10,000
-error.invalid.guess=Prediction should be a number between 1 and Bet Range

@@ -1,77 +1,536 @@
-2016-06-29 20:03:56,112 - [INFO] - from play in pool-4-thread-7 
+2016-06-30 07:57:07,228 - [INFO] - from play in pool-4-thread-1 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2016-06-29 20:03:58,986 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://localhost/test
+2016-06-30 07:57:09,075 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/sofi
 
-2016-06-29 20:03:59,229 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
-Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7d3b8776: startup date [Wed Jun 29 20:03:59 MDT 2016]; root of context hierarchy
+2016-06-30 07:57:09,326 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@da2deae: startup date [Thu Jun 30 07:57:09 MDT 2016]; root of context hierarchy
 
-2016-06-29 20:03:59,437 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
+2016-06-30 07:57:09,583 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
 
-2016-06-29 20:03:59,666 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
+2016-06-30 07:57:09,796 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
 Loaded JDBC driver: com.mysql.jdbc.Driver
 
-2016-06-29 20:03:59,682 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+2016-06-30 07:57:09,810 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
 Building JPA container EntityManagerFactory for persistence unit 'default'
 
-2016-06-29 20:03:59,705 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
+2016-06-30 07:57:09,830 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
 HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
 
-2016-06-29 20:03:59,770 - [INFO] - from org.hibernate.Version in play-internal-execution-context-1 
+2016-06-30 07:57:09,900 - [INFO] - from org.hibernate.Version in play-internal-execution-context-1 
 HHH000412: Hibernate Core {4.3.6.Final}
 
-2016-06-29 20:03:59,771 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
+2016-06-30 07:57:09,901 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
 HHH000206: hibernate.properties not found
 
-2016-06-29 20:03:59,772 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
+2016-06-30 07:57:09,903 - [INFO] - from org.hibernate.cfg.Environment in play-internal-execution-context-1 
 HHH000021: Bytecode provider name : javassist
 
-2016-06-29 20:03:59,981 - [INFO] - from org.hibernate.annotations.common.Version in play-internal-execution-context-1 
+2016-06-30 07:57:10,073 - [INFO] - from org.hibernate.annotations.common.Version in play-internal-execution-context-1 
 HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
 
-2016-06-29 20:04:00,034 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
+2016-06-30 07:57:10,130 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
 HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
 
-2016-06-29 20:04:00,139 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
+2016-06-30 07:57:10,231 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
 HHH000397: Using ASTQueryTranslatorFactory
 
-2016-06-29 20:04:00,183 - [INFO] - from org.hibernate.validator.internal.util.Version in play-internal-execution-context-1 
+2016-06-30 07:57:10,271 - [INFO] - from org.hibernate.validator.internal.util.Version in play-internal-execution-context-1 
 HV000001: Hibernate Validator 5.0.3.Final
 
-2016-06-29 20:04:00,467 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-30 07:57:10,542 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000228: Running hbm2ddl schema update
 
-2016-06-29 20:04:00,467 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-30 07:57:10,542 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000102: Fetching database metadata
 
-2016-06-29 20:04:00,473 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-30 07:57:10,548 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000396: Updating schema
 
-2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
-HHH000261: Table found: test.rule
+2016-06-30 07:57:10,551 - [INFO] - from java.sql.DatabaseMetaData in play-internal-execution-context-1 
+HHH000262: Table not found: rule
 
-2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
-HHH000037: Columns: [rule, rulename, id]
+2016-06-30 07:57:10,553 - [INFO] - from java.sql.DatabaseMetaData in play-internal-execution-context-1 
+HHH000262: Table not found: rule
 
-2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
-HHH000108: Foreign keys: []
+2016-06-30 07:57:10,554 - [INFO] - from java.sql.DatabaseMetaData in play-internal-execution-context-1 
+HHH000262: Table not found: rule
 
-2016-06-29 20:04:00,487 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
-HHH000126: Indexes: [primary]
-
-2016-06-29 20:04:00,488 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+2016-06-30 07:57:10,579 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
 HHH000232: Schema update complete
 
-2016-06-29 20:04:00,527 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+2016-06-30 07:57:10,622 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
 Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-2016-06-29 20:04:00,605 - [INFO] - from play in play-internal-execution-context-1 
+2016-06-30 07:57:10,706 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2016-06-29 20:04:00,808 - [INFO] - from akka.event.slf4j.Slf4jLogger in play-akka.actor.default-dispatcher-5 
+2016-06-30 07:57:10,905 - [INFO] - from akka.event.slf4j.Slf4jLogger in play-akka.actor.default-dispatcher-3 
 Slf4jLogger started
+
+2016-06-30 07:58:38,626 - [ERROR] - from play in play-akka.actor.default-dispatcher-15 
+Cannot invoke the action, eventually got an error: rule.exception.SkRuleNotFoundException: Rule name 'M', not found.
+
+2016-06-30 07:58:38,639 - [ERROR] - from application in play-akka.actor.default-dispatcher-15 
+
+
+! @70hla135j - Internal server error, for (POST) [/rule] ->
+
+play.api.Application$$anon$1: Execution exception[[SkRuleNotFoundException: Rule name 'M', not found.]]
+	at play.api.Application$class.handleError(Application.scala:296) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.DefaultApplication.handleError(Application.scala:402) [play_2.11-2.3.10.jar:2.3.10]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.10.jar:2.3.10]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3$$anonfun$applyOrElse$4.apply(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.10.jar:2.3.10]
+	at scala.Option.map(Option.scala:146) [scala-library-2.11.7.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:320) [play_2.11-2.3.10.jar:2.3.10]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$3.applyOrElse(PlayDefaultUpstreamHandler.scala:316) [play_2.11-2.3.10.jar:2.3.10]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32) [scala-library-2.11.7.jar:na]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:153) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:23) [scala-library-2.11.7.jar:na]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41) [akka-actor_2.11-2.3.4.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:393) [akka-actor_2.11-2.3.4.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.7.jar:na]
+Caused by: rule.exception.SkRuleNotFoundException: Rule name 'M', not found.
+	at rule.base.SkMasterStats.getRule(SkMasterStats.java:88) ~[classes/:na]
+	at rule.base.SkRuleMaster.getRule(SkRuleMaster.java:57) ~[classes/:na]
+	at rule.run.SkRuleRunner.runRuleRef(SkRuleRunner.java:192) ~[classes/:na]
+	at runRule(Application.java:80) ~[classes/:na]
+	at controllers.Application.doRuleAction(Application.java:47) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$8.apply(routes_routing.scala:75) ~[classes/:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$2$$anonfun$apply$8.apply(routes_routing.scala:75) ~[classes/:na]
+	at play.core.Router$HandlerInvokerFactory$$anon$4.resultCall(Router.scala:264) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.invocation(Router.scala:255) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:55) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.GlobalSettings$1.call(GlobalSettings.java:67) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.core.j.JavaAction$$anonfun$11.apply(JavaAction.scala:82) ~[play_2.11-2.3.10.jar:2.3.10]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.7.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:40) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:46) [play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:32) ~[play_2.11-2.3.10.jar:2.3.10]
+	at scala.concurrent.impl.Future$.apply(Future.scala:31) ~[scala-library-2.11.7.jar:na]
+	at scala.concurrent.Future$.apply(Future.scala:492) ~[scala-library-2.11.7.jar:na]
+	at play.core.j.JavaAction$class.apply(JavaAction.scala:82) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.core.Router$HandlerInvokerFactory$JavaActionInvokerFactory$$anon$15$$anon$1.apply(Router.scala:252) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4$$anonfun$apply$5.apply(Action.scala:130) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:129) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.mvc.Action$$anonfun$apply$1$$anonfun$apply$4.apply(Action.scala:128) ~[play_2.11-2.3.10.jar:2.3.10]
+	at scala.Option.map(Option.scala:146) [scala-library-2.11.7.jar:na]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:128) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.mvc.Action$$anonfun$apply$1.apply(Action.scala:121) ~[play_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$mapM$1.apply(Iteratee.scala:483) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMapM$1.apply(Iteratee.scala:519) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at play.api.libs.iteratee.Iteratee$$anonfun$flatMap$1$$anonfun$apply$14.apply(Iteratee.scala:496) ~[play-iteratees_2.11-2.3.10.jar:2.3.10]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.7.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.7.jar:na]
+	... 6 common frames omitted
+
+2016-06-30 08:02:53,832 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2016-06-30 08:02:53,834 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2016-06-30 08:02:53,888 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:02:53,894 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@42517929: startup date [Thu Jun 30 08:02:53 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:02:53,932 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:02:53,959 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:02:53,961 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:02:53,962 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:02:53,976 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:02:53,983 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:02:53,991 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:02:53,991 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:02:53,996 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000396: Updating schema
+
+2016-06-30 08:02:54,009 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:02:54,009 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:02:54,009 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:02:54,009 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:02:54,009 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000232: Schema update complete
+
+2016-06-30 08:02:54,010 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-1 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:02:54,010 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:02:54,032 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-06-30 08:03:53,874 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2016-06-30 08:03:53,874 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2016-06-30 08:03:53,973 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:03:53,984 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-1 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3b350e56: startup date [Thu Jun 30 08:03:53 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:03:54,029 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-1 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:03:54,063 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-1 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:03:54,067 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:03:54,067 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-1 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:03:54,084 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-1 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:03:54,094 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-1 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:03:54,107 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:03:54,107 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:03:54,111 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000396: Updating schema
+
+2016-06-30 08:03:54,115 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:03:54,115 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:03:54,115 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:03:54,115 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-1 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:03:54,116 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-1 
+HHH000232: Schema update complete
+
+2016-06-30 08:03:54,117 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-1 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:03:54,117 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-1 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:03:54,146 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2016-06-30 08:04:24,319 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Shutting down connection pool...
+
+2016-06-30 08:04:24,321 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Connection pool has been shutdown.
+
+2016-06-30 08:04:24,802 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:04:24,808 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-2 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@40c6896c: startup date [Thu Jun 30 08:04:24 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:04:24,907 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-2 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:04:24,932 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-2 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:04:24,934 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:04:24,934 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-2 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:04:24,948 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-2 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:04:24,957 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-2 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:04:24,965 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:04:24,965 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:04:24,968 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000396: Updating schema
+
+2016-06-30 08:04:24,972 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:04:24,972 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:04:24,972 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:04:24,972 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:04:24,972 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000232: Schema update complete
+
+2016-06-30 08:04:24,973 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-2 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:04:24,973 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:04:24,993 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2016-06-30 08:04:56,653 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Shutting down connection pool...
+
+2016-06-30 08:04:56,654 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Connection pool has been shutdown.
+
+2016-06-30 08:04:57,167 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:04:57,173 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-2 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@27e70bcd: startup date [Thu Jun 30 08:04:57 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:04:57,198 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-2 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:04:57,225 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-2 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:04:57,226 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:04:57,227 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-2 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:04:57,240 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-2 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:04:57,248 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-2 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:04:57,255 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:04:57,256 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:04:57,259 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000396: Updating schema
+
+2016-06-30 08:04:57,262 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:04:57,262 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:04:57,263 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:04:57,263 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:04:57,263 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000232: Schema update complete
+
+2016-06-30 08:04:57,263 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-2 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:04:57,263 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:04:57,282 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2016-06-30 08:07:23,996 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Shutting down connection pool...
+
+2016-06-30 08:07:23,997 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Connection pool has been shutdown.
+
+2016-06-30 08:07:24,045 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:07:24,053 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-2 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2341490d: startup date [Thu Jun 30 08:07:24 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:07:24,083 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-2 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:07:24,107 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-2 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:07:24,109 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:07:24,110 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-2 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:07:24,124 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-2 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:07:24,132 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-2 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:07:24,143 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:07:24,143 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:07:24,146 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000396: Updating schema
+
+2016-06-30 08:07:24,150 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:07:24,150 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:07:24,150 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:07:24,150 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:07:24,150 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000232: Schema update complete
+
+2016-06-30 08:07:24,151 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-2 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:07:24,151 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:07:24,162 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
+
+2016-06-30 08:10:47,694 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Shutting down connection pool...
+
+2016-06-30 08:10:47,695 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-2 
+Connection pool has been shutdown.
+
+2016-06-30 08:10:48,132 - [INFO] - from play in play-internal-execution-context-2 
+database [default] connected at jdbc:mysql://localhost/sofi
+
+2016-06-30 08:10:48,137 - [INFO] - from org.springframework.context.annotation.AnnotationConfigApplicationContext in play-internal-execution-context-2 
+Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2e7d58c8: startup date [Thu Jun 30 08:10:48 MDT 2016]; root of context hierarchy
+
+2016-06-30 08:10:48,159 - [INFO] - from org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor in play-internal-execution-context-2 
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+2016-06-30 08:10:48,177 - [INFO] - from org.springframework.jdbc.datasource.DriverManagerDataSource in play-internal-execution-context-2 
+Loaded JDBC driver: com.mysql.jdbc.Driver
+
+2016-06-30 08:10:48,178 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Building JPA container EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:10:48,178 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in play-internal-execution-context-2 
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+
+2016-06-30 08:10:48,191 - [INFO] - from org.hibernate.dialect.Dialect in play-internal-execution-context-2 
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+
+2016-06-30 08:10:48,200 - [INFO] - from org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory in play-internal-execution-context-2 
+HHH000397: Using ASTQueryTranslatorFactory
+
+2016-06-30 08:10:48,209 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000228: Running hbm2ddl schema update
+
+2016-06-30 08:10:48,209 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000102: Fetching database metadata
+
+2016-06-30 08:10:48,212 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000396: Updating schema
+
+2016-06-30 08:10:48,215 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000261: Table found: sofi.rule
+
+2016-06-30 08:10:48,215 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000037: Columns: [rule, rulename, id]
+
+2016-06-30 08:10:48,215 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000108: Foreign keys: []
+
+2016-06-30 08:10:48,215 - [INFO] - from org.hibernate.tool.hbm2ddl.TableMetadata in play-internal-execution-context-2 
+HHH000126: Indexes: [primary]
+
+2016-06-30 08:10:48,216 - [INFO] - from org.hibernate.tool.hbm2ddl.SchemaUpdate in play-internal-execution-context-2 
+HHH000232: Schema update complete
+
+2016-06-30 08:10:48,216 - [WARN] - from org.hibernate.jpa.internal.EntityManagerFactoryRegistry in play-internal-execution-context-2 
+HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+
+2016-06-30 08:10:48,216 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in play-internal-execution-context-2 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2016-06-30 08:10:48,226 - [INFO] - from play in play-internal-execution-context-2 
+Application started (Dev)
 
