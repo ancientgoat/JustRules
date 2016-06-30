@@ -7,6 +7,7 @@ import model.JrRuleForm;
  * Translate class for rules.
  */
 public class JrRuleTranslate {
+
     private JrRuleTranslate() {
     }
 
@@ -14,10 +15,8 @@ public class JrRuleTranslate {
      * Translate a JrRuleForm to a JrRule.
      */
     public static JrRule toJrRule(JrRuleForm inForm) {
-        JrRule rule = new JrRule();
-        rule.setRule(inForm.getRule());
-        rule.setRuleName(inForm.getRuleName());
-        return rule;
+        return new JrRule()
+                        .setRule(inForm.getRule())
+                        .setRuleName(inForm.getRuleName());
     }
-
 }

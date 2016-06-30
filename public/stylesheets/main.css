@@ -1,0 +1,29 @@
+body {
+    padding-top: 25px;
+}
+
+.container {
+    padding-top: 25px;
+    width: 100%;
+}
+
+pre.small {
+    font-size: 9pt;
+}
+
+.ruleContainer {
+    float: left;
+    border: solid black 1px;
+    padding-top: 5px;
+}
+
+.ruleNameContainer {
+    float: right;
+    border: solid black 1px;
+}
+
+.breadcrumbContainer {
+    background: yellow;
+    display: block;
+    clear: both;
+}

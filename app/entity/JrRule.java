@@ -27,23 +27,26 @@ public class JrRule {
         return id;
     }
 
-    public void setId(Long id) {
+    public JrRule setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getRuleName() {
         return ruleName;
     }
 
-    public void setRuleName(String ruleName) {
+    public JrRule setRuleName(String ruleName) {
         this.ruleName = ruleName;
+        return this;
     }
 
     public String getRule() {
         return rule;
     }
 
-    public void setRule(String rule) {
+    public JrRule setRule(String rule) {
         this.rule = rule;
+        return this;
     }
 }

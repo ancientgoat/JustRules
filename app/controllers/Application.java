@@ -20,7 +20,7 @@ import javax.inject.Named;
 import java.util.List;
 
 /**
- * Standard Play main application contraoller
+ * Standard Play main application controller
  */
 @Named
 public class Application extends Controller {
