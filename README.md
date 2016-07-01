@@ -1,4 +1,4 @@
-# JustRules
+# JustRules (JR)
 
 ## Introduction
 
