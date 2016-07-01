@@ -1,7 +1,6 @@
 package service;
 
 import entity.JrRule;
-
 import java.util.List;
 
 /**
@@ -10,15 +9,17 @@ import java.util.List;
 public interface JrRuleService {
 
     /**
-     * @return List<String>  Fetch 'all' rule names from the database.
+     * Fetch 'all' rule names from the database.
+     *
+     * @return List<String>
      */
     List<String> getRuleNames();
 
     /**
-     * Persist a rule to the database.
+     * Persist a rule to the database.  Return the saved rules, perhaps now with an 'id'.
      *
      * @param inRule Rule to be saved.
-     * @return JrRule Return the saved rules, perhaps now with an 'id'.
+     * @return JrRule
      */
-    JrRule save(JrRule inRule);
+    JrRule save(final JrRule inRule);
 }

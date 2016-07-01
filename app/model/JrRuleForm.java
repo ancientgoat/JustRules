@@ -2,9 +2,6 @@ package model;
 
 import play.data.validation.Constraints.Required;
 
-/**
- *
- */
 public class JrRuleForm {
 
     @Required
@@ -17,7 +14,7 @@ public class JrRuleForm {
         return ruleName;
     }
 
-    public void setRuleName(String ruleName) {
+    public void setRuleName(final String ruleName) {
         this.ruleName = ruleName;
     }
 
@@ -25,7 +22,7 @@ public class JrRuleForm {
         return rule;
     }
 
-    public void setRule(String rule) {
+    public void setRule(final String rule) {
         this.rule = rule;
     }
 

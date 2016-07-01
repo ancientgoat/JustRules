@@ -1,5 +1,7 @@
 package controllers;
 
+import static translate.JrRuleTranslate.toJrRule;
+
 import entity.JrRule;
 import model.JrRuleForm;
 import org.slf4j.Logger;
@@ -13,9 +15,6 @@ import rule.breadcrumbs.SkBreadcrumbs;
 import rule.common.JsonMapperHelper;
 import rule.run.SkRuleRunner;
 import service.JrRuleService;
-
-import static translate.JrRuleTranslate.toJrRule;
-
 import views.html.index;
 
 import javax.inject.Inject;
@@ -49,7 +48,7 @@ public class Application extends Controller {
         if (postAction == null || postAction.length == 0) {
             return badRequest("You must provide a valid action");
         } else {
-            String action = postAction[0];
+            final String action = postAction[0];
             if (log.isDebugEnabled()) {
                 log.debug("Performing the action '{}'", action);
             }
@@ -72,14 +71,14 @@ public class Application extends Controller {
     private Result saveRule() {
         Form<JrRuleForm> form = Form.form(JrRuleForm.class).bindFromRequest();
         if (form.hasErrors()) {
-            List<String> ruleNames = getRuleNames();
+            final List<String> ruleNames = getRuleNames();
             if (log.isWarnEnabled()) {
                 log.warn("Save failed for some reason : {}", form.globalError());
             }
             return badRequest(index.render(form, ruleNames, null));
         } else {
-            JrRuleForm ruleForm = form.get();
-            JrRule rule = toJrRule(ruleForm);
+            final JrRuleForm ruleForm = form.get();
+            final JrRule rule = toJrRule(ruleForm);
             ruleService.save(rule);
             if (log.isTraceEnabled()) {
                 log.trace("Save successful!");
@@ -94,23 +93,23 @@ public class Application extends Controller {
     private Result runRule() {
         Form<JrRuleForm> form = Form.form(JrRuleForm.class).bindFromRequest();
         if (form.hasErrors()) {
-            List<String> ruleNames = ruleService.getRuleNames();
+            final List<String> ruleNames = ruleService.getRuleNames();
             if (log.isWarnEnabled()) {
                 log.warn("Run Rule failed for some reason : {}", form.globalError());
             }
             return badRequest(index.render(form, ruleNames, null));
         } else {
-            JrRuleForm ruleForm = form.get();
-            String ruleJson = ruleForm.getRule();
-            SkRules rules = JsonMapperHelper.buildRules(ruleJson);
-            SkRuleMaster master = new SkRuleMaster.Builder()
+            final JrRuleForm ruleForm = form.get();
+            final String ruleJson = ruleForm.getRule();
+            final SkRules rules = JsonMapperHelper.buildRules(ruleJson);
+            final SkRuleMaster master = new SkRuleMaster.Builder()
                             .addRules(rules).build();
-            SkRuleRunner runner = master.getRuleRunner();
-            runner.runRuleRef(ruleForm.getRuleName());
-            SkBreadcrumbs breadcrumbs = runner.getBreadcrumbs();
-            String breadcrumbJson = breadcrumbs.toJson();
+            final SkRuleRunner runner = master.getRuleRunner();
 
-            List<String> ruleNames = getRuleNames();
+            runner.runRuleRef(ruleForm.getRuleName());
+            final SkBreadcrumbs breadcrumbs = runner.getBreadcrumbs();
+            final String breadcrumbJson = breadcrumbs.toJson();
+            final List<String> ruleNames = getRuleNames();
 
             if (log.isTraceEnabled()) {
                 log.trace("Run rule successful!");
@@ -124,7 +123,7 @@ public class Application extends Controller {
      * the database.
      */
     private List<String> getRuleNames() {
-        List<String> ruleNames = ruleService.getRuleNames();
+        final List<String> ruleNames = ruleService.getRuleNames();
         if (log.isTraceEnabled()) {
             log.trace("Number of rules read : {}", ruleNames.size());
         }

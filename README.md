@@ -14,7 +14,7 @@ that can be stored in a database, or a file system.  .....
 
 ## Installation
 
-To set up the MySQL database you will need to have a 'sofi'
+To set up the MySQL database you will need to have a 'test'
 database and a 'root' user with access to that database.
 
 ## Running
@@ -24,3 +24,11 @@ To run this project, just navigate to the root of this project and run:
 sbt run
 ```
 
+TODO
+* Git commit messages
+x* sofi database (to 'test')
+x* import order - static on top
+* javadoc
+* final
+* source formatting in rules
+* hashcode, equals, and toString for entities

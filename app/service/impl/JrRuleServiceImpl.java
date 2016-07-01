@@ -12,9 +12,6 @@ import java.util.List;
 
 import static javafx.scene.input.KeyCode.T;
 
-/**
- *
- */
 @Named
 public class JrRuleServiceImpl implements JrRuleService {
 
@@ -23,12 +20,13 @@ public class JrRuleServiceImpl implements JrRuleService {
 
     @Override
     @Transactional
-    public JrRule save(JrRule inRule) {
-        String ruleName = inRule.getRuleName();
-
-        List<String> resultList = em.createQuery("SELECT ruleName FROM entity.JrRule R WHERE R.ruleName = :ruleName", String.class)
-                                 .setParameter("ruleName", ruleName)
-                                 .getResultList();
+    public JrRule save(final JrRule inRule) {
+        final String ruleName = inRule.getRuleName();
+        final List<String>
+                        resultList =
+                        em.createQuery("SELECT ruleName FROM entity.JrRule R WHERE R.ruleName = :ruleName", String.class)
+                          .setParameter("ruleName", ruleName)
+                          .getResultList();
         if (resultList.size() > 0) {
             throw new IllegalArgumentException(String.format("Rule name '%s' already exists.", resultList));
         }
@@ -38,8 +36,6 @@ public class JrRuleServiceImpl implements JrRuleService {
 
     @Override
     public List<String> getRuleNames() {
-        Query query = em.createNativeQuery("SELECT ruleName FROM rule");
-        List<String> ruleNames = query.getResultList();
-        return ruleNames;
+        return em.createQuery("SELECT ruleName FROM entity.JrRule R", String.class).getResultList();
     }
 }

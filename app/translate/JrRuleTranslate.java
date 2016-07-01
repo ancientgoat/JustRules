@@ -11,7 +11,7 @@ public class JrRuleTranslate {
     /**
      * Translate a JrRuleForm to a JrRule.
      */
-    public static JrRule toJrRule(JrRuleForm inForm) {
+    public static JrRule toJrRule(final JrRuleForm inForm) {
         return new JrRule()
                         .setRule(inForm.getRule())
                         .setRuleName(inForm.getRuleName());
