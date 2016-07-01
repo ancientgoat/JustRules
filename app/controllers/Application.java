@@ -1,5 +1,6 @@
 package controllers;
 
+import entity.JrRule;
 import model.JrRuleForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,9 @@ import rule.breadcrumbs.SkBreadcrumbs;
 import rule.common.JsonMapperHelper;
 import rule.run.SkRuleRunner;
 import service.JrRuleService;
-import translate.JrRuleTranslate;
+
+import static translate.JrRuleTranslate.toJrRule;
+
 import views.html.index;
 
 import javax.inject.Inject;
@@ -35,7 +38,7 @@ public class Application extends Controller {
     public Result index() {
         session().clear(); // reset saved login
         List<String> ruleNames = getRuleNames();
-        return ok(index.render(Form.form(model.JrRuleForm.class), ruleNames, null));
+        return ok(index.render(Form.form(JrRuleForm.class), ruleNames, null));
     }
 
     /**
@@ -76,7 +79,7 @@ public class Application extends Controller {
             return badRequest(index.render(form, ruleNames, null));
         } else {
             JrRuleForm ruleForm = form.get();
-            entity.JrRule rule = JrRuleTranslate.toJrRule(ruleForm);
+            JrRule rule = toJrRule(ruleForm);
             ruleService.save(rule);
             if (log.isTraceEnabled()) {
                 log.trace("Save successful!");
@@ -112,13 +115,13 @@ public class Application extends Controller {
             if (log.isTraceEnabled()) {
                 log.trace("Run rule successful!");
             }
-            return ok(index.render(Form.form(model.JrRuleForm.class), ruleNames, breadcrumbJson));
+            return ok(index.render(Form.form(JrRuleForm.class), ruleNames, breadcrumbJson));
         }
     }
 
     /**
      * Used more than once, so 'if you use it twice, use it once.'  Fetch 'all' rule names from
-     *  the database.
+     * the database.
      */
     private List<String> getRuleNames() {
         List<String> ruleNames = ruleService.getRuleNames();

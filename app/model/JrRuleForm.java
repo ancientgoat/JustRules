@@ -1,17 +1,16 @@
 package model;
 
-import play.data.validation.Constraints;
+import play.data.validation.Constraints.Required;
 
 /**
  *
  */
-
 public class JrRuleForm {
 
-    @Constraints.Required
+    @Required
     private String ruleName;
 
-    @Constraints.Required
+    @Required
     private String rule;
 
     public String getRuleName() {

@@ -8,9 +8,6 @@ import model.JrRuleForm;
  */
 public class JrRuleTranslate {
 
-    private JrRuleTranslate() {
-    }
-
     /**
      * Translate a JrRuleForm to a JrRule.
      */

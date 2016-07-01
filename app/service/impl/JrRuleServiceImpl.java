@@ -10,6 +10,8 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import static javafx.scene.input.KeyCode.T;
+
 /**
  *
  */
@@ -22,6 +24,14 @@ public class JrRuleServiceImpl implements JrRuleService {
     @Override
     @Transactional
     public JrRule save(JrRule inRule) {
+        String ruleName = inRule.getRuleName();
+
+        List<String> resultList = em.createQuery("SELECT ruleName FROM entity.JrRule R WHERE R.ruleName = :ruleName", String.class)
+                                 .setParameter("ruleName", ruleName)
+                                 .getResultList();
+        if (resultList.size() > 0) {
+            throw new IllegalArgumentException(String.format("Rule name '%s' already exists.", resultList));
+        }
         em.persist(inRule);
         return inRule;
     }
