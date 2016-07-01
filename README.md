@@ -28,7 +28,8 @@ TODO
 * Git commit messages
 x* sofi database (to 'test')
 x* import order - static on top
-* javadoc
-* final
+2* javadoc
+2* final
 * source formatting in rules
-* hashcode, equals, and toString for entities
+X* hashcode, equals, and toString for entities
+2* no log is Enabled ifs

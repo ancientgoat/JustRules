@@ -34,9 +34,9 @@ public class JrRuleServiceTest extends AbstractTransactionalJUnit4SpringContextT
      */
     @Test
     public void testGetRuleNames() {
-        List<String> ruleNames = getRuleNames();
+        final List<String> ruleNames = getRuleNames();
         when(mockedRuleService.getRuleNames()).thenReturn(ruleNames);
-        List<String> tempRuleName = mockedRuleService.getRuleNames();
+        final List<String> tempRuleName = mockedRuleService.getRuleNames();
         Assert.assertEquals("Rule name sizes are different.", ruleNames.size(), tempRuleName.size());
     }
 
@@ -45,12 +45,12 @@ public class JrRuleServiceTest extends AbstractTransactionalJUnit4SpringContextT
      */
     @Test
     public void testSimpleSave() {
-        JrRule initialRule = new JrRule()
+        final JrRule initialRule = new JrRule()
                         .setRuleName("A1")
                         .setRule("some rule ges here");
-        JrRule returnRule = initialRule.setId(13L);
+        final JrRule returnRule = initialRule.setId(13L);
         when(mockedRuleService.save(initialRule)).thenReturn(returnRule);
-        JrRule newRule = mockedRuleService.save(initialRule);
+        final JrRule newRule = mockedRuleService.save(initialRule);
         Assert.assertEquals("Ids do not match", returnRule.getId(), newRule.getId());
     }
 
@@ -59,13 +59,13 @@ public class JrRuleServiceTest extends AbstractTransactionalJUnit4SpringContextT
      */
     @Test
     public void testCanNotDuplicateRuleName() {
-        JrRule initialRule = new JrRule()
+        final JrRule initialRule = new JrRule()
                         .setRuleName("A1")
                         .setRule("some rule ges here");
-        JrRule newRule1 = ruleService.save(initialRule);
+        final JrRule newRule1 = ruleService.save(initialRule);
 
         try {
-            JrRule newRule2 = ruleService.save(initialRule);
+            final JrRule newRule2 = ruleService.save(initialRule);
             fail("Was not suppose to get here - we are not suppose to allow duplicate rule names.");
         } catch (Exception e) {
             //Ignore - this is what we expect
@@ -76,7 +76,7 @@ public class JrRuleServiceTest extends AbstractTransactionalJUnit4SpringContextT
      * Helper method for faking a list of rule names.
      */
     private List<String> getRuleNames() {
-        List<String> ruleNames = Lists.newArrayList();
+        final List<String> ruleNames = Lists.newArrayList();
         ruleNames.add("A1");
         ruleNames.add("A2");
         return ruleNames;
