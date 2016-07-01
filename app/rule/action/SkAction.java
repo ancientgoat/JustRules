@@ -9,11 +9,11 @@ import rule.action.enums.SkActionContext;
 import rule.run.SkRuleRunner;
 
 /**
- *
+ * Action Central.  Every action extends this class.  And the sub-types below allow us to
+ * 	deserialize json into subclasses.
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "actiontype")
 @JsonSubTypes({//
-		@JsonSubTypes.Type(value = SkActionAki.class, name = "AKI"),
 		@JsonSubTypes.Type(value = SkActionCustomImpl.class, name = "CUSTOM"),
 		@JsonSubTypes.Type(value = SkActionData.class, name = "DATA"),
 		@JsonSubTypes.Type(value = SkActionLog.class, name = "LOG"),

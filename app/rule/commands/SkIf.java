@@ -27,33 +27,21 @@ public class SkIf {
 	public SkIf() {
 	}
 
-	/**
-	 *
-	 */
 	public SkIf(@NotNull String inIfExpression) {
 		setExpression(inIfExpression);
 	}
 
-	/**
-	 *
-	 */
 	@JsonProperty("ruleref")
-	public void setRuleRef(String inRuleRef) {
+	public void setRuleRef(final String inRuleRef) {
 		ruleRef = inRuleRef;
 	}
 
-	/**
-	 *
-	 */
 	public String getRuleRef() {
 		return ruleRef;
 	}
 
-	/**
-	 *
-	 */
 	@JsonProperty("expression")
-	public void setExpression(String inExpression) {
+	public void setExpression(final String inExpression) {
 		if (null != inExpression) {
 			this.inputExpression = inExpression;
 			validateInputExpression();
@@ -66,9 +54,6 @@ public class SkIf {
 		return skExpression;
 	}
 
-	/**
-	 *
-	 */
 	private void validateInputExpression() {
 		if (null == this.inputExpression && null == ruleRef) {
 			throw new IllegalArgumentException("Input expression AND ruleRef can not be null.");
@@ -87,7 +72,6 @@ public class SkIf {
 	 */
 	public Boolean run(SkRuleRunner inRunner) {
 		Boolean returnValue = null;
-
 		if (null != ruleRef) {
 			returnValue = inRunner.runRuleRef(this.ruleRef);
 			inRunner.addDebugCrumb(this.ruleRef, returnValue);
@@ -97,10 +81,7 @@ public class SkIf {
 		return returnValue;
 	}
 
-	/**
-	 *
-	 */
-	private Boolean runThis(SkRuleRunner inRunner) {
+	private Boolean runThis(final SkRuleRunner inRunner) {
 
 		Object objectAnswer = inRunner.getValue(this.skExpression);
 
@@ -137,13 +118,13 @@ public class SkIf {
 			log.debug(String.format("IF Value : %s", objectAnswer.toString()));
 		}
 
-		String expString = null != this.skExpression ? this.skExpression.getOriginalString() : "";
-		String tempAnswer = (null != objectAnswer ?
+		final String expString = null != this.skExpression ? this.skExpression.getOriginalString() : "";
+		final String tempAnswer = (null != objectAnswer ?
 				objectAnswer.getClass()
 						.getName() :
 				"null");
 
-		String warning =
+		final String warning =
 				String.format("IF condition mast result in a Boolean, not a " + "%s\nOriginal: %s\nSpEL Exp: %s",
 						tempAnswer, expString, expString);
 

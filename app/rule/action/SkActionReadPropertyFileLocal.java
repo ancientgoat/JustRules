@@ -1,5 +1,8 @@
 package rule.action;
 
+import controllers.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rule.action.enums.SkActionContext;
 import rule.run.SkRuleRunner;
 import org.springframework.core.io.ClassPathResource;
@@ -13,39 +16,41 @@ import java.util.Properties;
  */
 public class SkActionReadPropertyFileLocal extends SkAction {
 
-	private String filename;
+    private static final Logger log = LoggerFactory.getLogger(SkActionReadPropertyFileLocal.class);
 
-	@Override
-	public void run(SkRuleRunner inRunner) {
-		try {
-			filename = (String) inRunner.getValue(filename, filename);
+    private String filename;
 
-			System.out.println("=========================================");
-			System.out.println("filename : " + filename);
-			System.out.println("=========================================");
-			ClassPathResource resource = new ClassPathResource(filename);
-			File file = resource.getFile();
-			Properties properties = new Properties();
-			properties.load(new FileReader(file));
-			properties.stringPropertyNames()
-					.forEach(name -> {
-						String value = properties.getProperty(name);
-						inRunner.setValue(name.toUpperCase(), value);
-					});
-		} catch (Exception e) {
-			throw new IllegalArgumentException(e);
-		}
-	}
+    @Override
+    public void run(final SkRuleRunner inRunner) {
+        try {
+            filename = (String)inRunner.getValue(filename, filename);
 
-	public String getFilename() {
-		return filename;
-	}
+            log.info("=========================================");
+            log.info("filename : " + filename);
+            log.info("=========================================");
+            final ClassPathResource resource = new ClassPathResource(filename);
+            final File file = resource.getFile();
+            final Properties properties = new Properties();
+            properties.load(new FileReader(file));
+            properties.stringPropertyNames()
+                      .forEach(name -> {
+                          final String value = properties.getProperty(name);
+                          inRunner.setValue(name.toUpperCase(), value);
+                      });
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
 
-	public void setFilename(final String inFilename) {
-		filename = inFilename;
-	}
+    public String getFilename() {
+        return filename;
+    }
 
-	public SkActionContext getActionContext() {
-		return SkActionContext.NOW;
-	}
+    public void setFilename(final String inFilename) {
+        filename = inFilename;
+    }
+
+    public SkActionContext getActionContext() {
+        return SkActionContext.NOW;
+    }
 }

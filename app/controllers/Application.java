@@ -15,7 +15,6 @@ import rule.breadcrumbs.SkBreadcrumbs;
 import rule.common.JsonMapperHelper;
 import rule.run.SkRuleRunner;
 import service.JrRuleService;
-import views.html.helper.form;
 import views.html.index;
 
 import javax.inject.Inject;

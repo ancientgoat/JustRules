@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * SpEL context per Rule Runner instance.
  */
 public class SkRuleContext {
 
@@ -33,79 +33,46 @@ public class SkRuleContext {
 	private ExpressionParser parser;
 	private SkRuleRunner runner;
 
-	/**
-	 *
-	 */
 	SkRuleContext() {
 		init(null);
 	}
 
-	/**
-	 *
-	 */
-	SkRuleContext(SpelCompilerMode inSpelCompilerMode) {
+	SkRuleContext(final SpelCompilerMode inSpelCompilerMode) {
 		init(inSpelCompilerMode);
 	}
 
-	/**
-	 *
-	 */
-	private void init(SpelCompilerMode inSpelCompilerMode) {
-
+	private void init(final SpelCompilerMode inSpelCompilerMode) {
 		SpelCompilerMode mode = (null != inSpelCompilerMode ? inSpelCompilerMode : SpelCompilerMode.MIXED);
-
 		this.spelConfig = new SpelParserConfiguration(mode, this.getClass()
 																.getClassLoader());
-
 		parser = new SpelExpressionParser(this.spelConfig);
 	}
 
-	/**
-	 *
-	 */
 	ExpressionParser getParser() {
 		return parser;
 	}
 
-	/**
-	 *
-	 */
 	SpelParserConfiguration getSpelConfig() {
 		return spelConfig;
 	}
 
-	/**
-	 *
-	 */
 	public Map<String, Object> getInternalMap() {
 		return internalMap;
 	}
 
-	/**
-	 *
-	 */
 	void setRunner(final SkRuleRunner inRunner) {
 		this.runner = inRunner;
 	}
 
-	/**
-	 *
-	 */
 	void runRule(final SkRuleBase inRule) {
 		this.runner.runRule(inRule);
 	}
 
-	/**
-	 *
-	 */
-	void setValue(String inKey, Object inValue) {
+	void setValue(final String inKey, final Object inValue) {
 		internalMap.put(inKey, inValue);
 	}
 
-	/**
-	 *
-	 */
-	Object getValue(String inKey) {
+	Object getValue(final String inKey) {
 		if (null != inKey) {
 			String s = inKey.replace("['", "")
 					.replace("']", "");
@@ -114,24 +81,18 @@ public class SkRuleContext {
 		return null;
 	}
 
-	/**
-	 *
-	 */
-	boolean containsMacroKey(String inKey) {
+	boolean containsMacroKey(final String inKey) {
 		return this.internalMap.containsKey(inKey);
 	}
 
-	/**
-	 *
-	 */
 	public Object setValue(final SkExpression inExpression) {
-		String expressionString = inExpression.getExpressionString();
+		final String expressionString = inExpression.getExpressionString();
 		if (null == expressionString || 0 == expressionString.length()) {
 			this.runner.addErrorCrumb(String.format("%s : Missing Expression", expressionString));
 			throw new IllegalArgumentException("ExpressionString can not be null, or of length zero (0).");
 		}
 		try {
-			Object answer = runExpression(inExpression);
+			final Object answer = runExpression(inExpression);
 			this.runner.addDebugCrumb(
 					String.format("%s => %s", expressionString, findExpressionMacrosWithValues(expressionString),
 							answer));
@@ -141,15 +102,12 @@ public class SkRuleContext {
 		}
 	}
 
-	/**
-	 *
-	 */
-	public Object getValue(SkExpression inExpression) {
+	public Object getValue(final SkExpression inExpression) {
 		//
-		StringBuilder sb = new StringBuilder("\n");
+		final StringBuilder sb = new StringBuilder("\n");
 
-		System.out.println("EXPRESSION MACRO LIST : " + inExpression.getMacroList());
-		System.out.println("RUNNER SET MACRO LIST : " + this.internalMap);
+		log.info("EXPRESSION MACRO LIST : " + inExpression.getMacroList());
+		log.info("RUNNER SET MACRO LIST : " + this.internalMap);
 
 		inExpression.getMacroList()
 				.forEach(macro -> {
@@ -164,17 +122,14 @@ public class SkRuleContext {
 		return runExpression(inExpression);
 	}
 
-	/**
-	 *
-	 */
-	private Object runExpression(SkExpression inExpression) {
-		String expressionString = inExpression.getExpressionString();
+	private Object runExpression(final SkExpression inExpression) {
+		final String expressionString = inExpression.getExpressionString();
 		this.runner.addDebugCrumb("Before", inExpression, findExpressionMacrosWithValues(expressionString));
-		Expression exp = this.parser.parseExpression(expressionString);
+		final Expression exp = this.parser.parseExpression(expressionString);
 
 		// Use a combined Global and local map.
-		Map<String, Object> globalMap = SkGlobalContext.getGlobalMap();
-		Map<String, Object> combinedMap = Maps.newHashMap();
+		final Map<String, Object> globalMap = SkGlobalContext.getGlobalMap();
+		final Map<String, Object> combinedMap = Maps.newHashMap();
 		combinedMap.putAll(globalMap);
 		combinedMap.putAll(internalMap);
 
@@ -203,23 +158,18 @@ public class SkRuleContext {
 						globalMap.put(k, combinedMap.get(k));
 					}
 				});
-		String msg = String.format("After: %s", findExpressionMacrosWithValues(expressionString));
+		final String msg = String.format("After: %s", findExpressionMacrosWithValues(expressionString));
 		this.runner.addDebugCrumb(msg, inExpression, answer);
 		return answer;
 	}
 
-	/**
-	 *
-	 */
 	public String expandMacros(final String inMessage) {
 		if (null == inMessage) {
 			return inMessage;
 		}
-		Pattern pattern = Pattern.compile("\\$\\{.*?\\}");
-
-		Matcher matcher = pattern.matcher(inMessage);
-
-		StringBuilder sb = new StringBuilder();
+		final Pattern pattern = Pattern.compile("\\$\\{.*?\\}");
+		final Matcher matcher = pattern.matcher(inMessage);
+		final StringBuilder sb = new StringBuilder();
 
 		boolean b = matcher.find();
 		int prevEnd = 0;
@@ -254,36 +204,23 @@ public class SkRuleContext {
 		return sb.toString();
 	}
 
-	/**
-	 *
-	 */
 	public String findExpressionMacrosWithValues(final String inMessage) {
-
-		Set<String> set = findExpressionMacros(inMessage);
-		List<String> returnList = Lists.newArrayList();
-
+		final Set<String> set = findExpressionMacros(inMessage);
+		final List<String> returnList = Lists.newArrayList();
 		set.forEach(lst -> {
 			returnList.add(String.format("%s = %s", lst, getValue(lst)));
 		});
-
 		return String.join(", ", returnList);
 	}
 
-	/**
-	 *
-	 */
 	public Set<String> findExpressionMacros(final String inMessage) {
-
-		Set<String> expressionMacros = Sets.newHashSet();
-
+		final Set<String> expressionMacros = Sets.newHashSet();
 		if (null == inMessage) {
 			return expressionMacros;
 		}
-		Pattern pattern = Pattern.compile("\\[\\'.*?\\'\\]");
-
-		Matcher matcher = pattern.matcher(inMessage);
-
-		StringBuilder sb = new StringBuilder();
+		final Pattern pattern = Pattern.compile("\\[\\'.*?\\'\\]");
+		final Matcher matcher = pattern.matcher(inMessage);
+		final StringBuilder sb = new StringBuilder();
 
 		boolean b = matcher.find();
 		int prevEnd = 0;

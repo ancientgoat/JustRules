@@ -33,14 +33,14 @@ public class SkExpression {
 	public SkExpression() {
 	}
 
-	public SkExpression(final List<String> inMacroList, String inOriginalExpression, String inExpressionString) {
+	public SkExpression(final List<String> inMacroList, final String inOriginalExpression, final String inExpressionString) {
 		this.expressionString = inExpressionString;
 		this.originalString = inOriginalExpression;
 		inMacroList.forEach(m -> macroMap.put(m, null));
 	}
 
 	@JsonProperty("expression")
-	public void setExpression(String inExpressionsString) {
+	public void setExpression(final String inExpressionsString) {
 		SkExpression newExpression = SkExpressionFactory.parseExpression(inExpressionsString);
 		this.expressionString = newExpression.expressionString;
 		this.originalString = newExpression.originalString;
@@ -53,16 +53,10 @@ public class SkExpression {
 		return originalString;
 	}
 
-	/**
-	 *
-	 */
 	public String getExpressionString() {
 		return expressionString;
 	}
 
-	/**
-	 *
-	 */
 	@JsonIgnore
 	public List<String> getMacroList() {
 		return Lists.newArrayList(this.macroMap.keySet());
@@ -71,7 +65,7 @@ public class SkExpression {
 	/**
 	 * This method actually will set a value in the local context, based on this expression.
 	 */
-	public void setValue(@NotNull SkRuleRunner inRunner) {
+	public void setValue(final @NotNull SkRuleRunner inRunner) {
 		if (!this.expressionString.startsWith("//"))
 			inRunner.setValue(this);
 	}
@@ -80,15 +74,12 @@ public class SkExpression {
 	 * This method actually will return a value from the local context, based on this expression.
 	 * Most often used to get a true or false for an 'if' condition.
 	 */
-	public Object getValue(@NotNull SkRuleRunner inRunner) {
+	public Object getValue(final @NotNull SkRuleRunner inRunner) {
 		if (!this.expressionString.startsWith("//"))
 			return inRunner.getValue(this);
 		return true;
 	}
 
-	/**
-	 *
-	 */
 	public String dumpToString() {
 
 		if (null != originalString && null != expressionString && originalString.equals(expressionString)) {

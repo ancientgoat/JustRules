@@ -19,9 +19,9 @@ public class SkActionReadPropertyFileGlobal extends SkAction {
 	@Override
 	public void run(SkRuleRunner inRunner) {
 		try {
-			ClassPathResource resource = new ClassPathResource(filename);
-			File file = resource.getFile();
-			Properties properties = new Properties();
+			final ClassPathResource resource = new ClassPathResource(filename);
+			final File file = resource.getFile();
+			final Properties properties = new Properties();
 			properties.load(new FileReader(file));
 			properties.stringPropertyNames()
 					.forEach(name -> {

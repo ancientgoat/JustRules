@@ -1,15 +1,16 @@
 package rule.common;
 
+import static com.fasterxml.jackson.databind.DeserializationFeature.READ_ENUMS_USING_TO_STRING;
+import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_ENUMS_USING_TO_STRING;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import controllers.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
-import rule.base.SkRule;
 import rule.base.SkRuleBase;
 import rule.base.SkRules;
 
@@ -17,11 +18,8 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.StringWriter;
 
-import static com.fasterxml.jackson.databind.DeserializationFeature.READ_ENUMS_USING_TO_STRING;
-import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_ENUMS_USING_TO_STRING;
-
 /**
- *
+ * JSON helper
  */
 public class JsonMapperHelper {
 
@@ -33,29 +31,29 @@ public class JsonMapperHelper {
     /**
      * Read Actions from file.
      */
-    public static SkRules buildThingsFromDirectory(String filePath) {
+    public static SkRules buildThingsFromDirectory(final String filePath) {
 
         String json = "";
-        SkRules returnRules = new SkRules();
+        final SkRules returnRules = new SkRules();
         try {
             ObjectMapper objectMapper;
-            ClassPathResource resource = new ClassPathResource(filePath);
-            File topDir = resource.getFile();
+            final ClassPathResource resource = new ClassPathResource(filePath);
+            final File topDir = resource.getFile();
             if (!topDir.exists()) {
                 throw new IllegalArgumentException(
                                 String.format("File '%s' does NOT exist.", topDir.getAbsolutePath()));
             }
 
-            File[] files = topDir.listFiles();
+            final File[] files = topDir.listFiles();
             for (File file : files) {
 
                 SkRuleBase rule = null;
                 SkRules rules = null;
 
-                System.out.println("--------------------------------------------------------");
-                String fullFilePath = file.getAbsolutePath();
-                System.out.println(String.format("File : %s", fullFilePath));
-                System.out.println("--------------------------------------------------------");
+                log.info("--------------------------------------------------------");
+                final String fullFilePath = file.getAbsolutePath();
+                log.info(String.format("File : %s", fullFilePath));
+                log.info("--------------------------------------------------------");
 
                 if (!fullFilePath.toLowerCase()
                                  .endsWith(".json")) {
@@ -89,7 +87,6 @@ public class JsonMapperHelper {
         C things = null;
         try {
             ObjectMapper objectMapper;
-
             File file = null;
 
             try {
@@ -115,12 +112,12 @@ public class JsonMapperHelper {
     /**
      * Read Actions from file.
      */
-    public static SkRules buildRules(String inJsonContent) {
-        SkRules returnRules = new SkRules();
+    public static SkRules buildRules(final String inJsonContent) {
+        final SkRules returnRules = new SkRules();
         SkRuleBase rule = null;
         SkRules rules = null;
         try {
-            ObjectMapper objectMapper = JsonMapperHelper.jsonMapper();
+            final ObjectMapper objectMapper = JsonMapperHelper.jsonMapper();
             try {
                 rule = objectMapper.readValue(inJsonContent, SkRuleBase.class);
             } catch (Exception e) {
@@ -140,36 +137,19 @@ public class JsonMapperHelper {
     }
 
     public static final ObjectMapper newInstanceJson() {
-        ObjectMapper mapper = new CustomMapper();
+        final ObjectMapper mapper = new CustomMapper();
         mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
-
-        // mapper.setPropertyNamingStrategy(new CamelCaseNamingStrategy());
-        // mapper.getDeserializationConfig().findMixInClassFor(InpNodeBase.class);
-
-        //mapper.configure(DeserializationConfig.Feature.UNWRAP_ROOT_VALUE, true);
-        //mapper.enable(DeserializationFeature.UNWRAP_ROOT_VALUE);
         mapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
         mapper.enable(DeserializationFeature.USE_BIG_INTEGER_FOR_INTS);
 
         return mapper;
     }
 
-    ///**
-    // * Use Jackson's XML Mapper.
-    // */
-    //public static ObjectMapper xmlMapper() {
-    //	final JacksonXmlModule module = new JacksonXmlModule();
-    //	module.setDefaultUseWrapper(false);
-    //	final XmlMapper xmlMapper = new XmlMapper(module);
-    //	return commonProperties(xmlMapper);
-    //}
-
     /**
      * Use Jackson's JSON Mapper.
      */
     public static final ObjectMapper jsonMapper() {
-        ObjectMapper mapper = new CustomMapper();
-        //mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
+        final ObjectMapper mapper = new CustomMapper();
         mapper.enable(DeserializationFeature.UNWRAP_ROOT_VALUE);
         mapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
         mapper.enable(DeserializationFeature.USE_BIG_INTEGER_FOR_INTS);
@@ -194,21 +174,18 @@ public class JsonMapperHelper {
     /**
      * Pretty Print (output) the input Object, using the input Jackson ObjectMapper.
      */
-    public static String prettyPrint(Object inObject, ObjectMapper inObjectMapper) {
+    public static String prettyPrint(final Object inObject, final ObjectMapper inObjectMapper) {
         return prettyPrint(inObject, inObjectMapper, null);
     }
 
     /**
      * Pretty Print (output) the input Object, using the input Jackson ObjectMapper.
      */
-    public static String prettyPrint(Object inObject, ObjectMapper inObjectMapper, String inRootName) {
+    public static String prettyPrint(final Object inObject, final ObjectMapper inObjectMapper, final String inRootName) {
         try {
-            //return inObjectMapper.writerWithDefaultPrettyPrinter()
-            //		.writeValueAsString(inObject);
-
-            StringWriter w = new StringWriter();
+            final StringWriter w = new StringWriter();
             ObjectWriter writer = inObjectMapper.writerWithDefaultPrettyPrinter();
-            if (null != inRootName) {
+            if (inRootName != null) {
                 writer = writer.withRootName(inRootName);
             }
             writer.writeValue(w, inObject);
@@ -222,29 +199,29 @@ public class JsonMapperHelper {
     /**
      * Normal Print (output) the input Object, using the input Jackson ObjectMapper.
      */
-    public static String beanToJsonString(Object inObject) {
+    public static String beanToJsonString(final Object inObject) {
         return beanToString(inObject, jsonMapper());
     }
 
     /**
      * Normal Print (output) the input Object, using the input Jackson ObjectMapper.
      */
-    public static String beanToJsonString(Object inObject, String inRootName) {
+    public static String beanToJsonString(final Object inObject, final String inRootName) {
         return beanToString(inObject, inRootName, jsonMapper());
     }
 
     /**
      * Normal Print (output) the input Object, using the input Jackson ObjectMapper.
      */
-    public static String beanToString(Object inObject, ObjectMapper inObjectMapper) {
+    public static String beanToString(final Object inObject, final ObjectMapper inObjectMapper) {
         return beanToString(inObject, null, inObjectMapper);
     }
 
-    public static String beanToString(Object inObject, String inRootName, ObjectMapper inObjectMapper) {
+    public static String beanToString(final Object inObject, final String inRootName, final ObjectMapper inObjectMapper) {
         try {
-            StringWriter w = new StringWriter();
+            final StringWriter w = new StringWriter();
             ObjectWriter writer = inObjectMapper.writer();
-            if (null != inRootName) {
+            if (inRootName != null) {
                 writer = writer.withRootName(inRootName);
             }
             writer.writeValue(w, inObject);
@@ -265,8 +242,8 @@ public class JsonMapperHelper {
      * @param in The String whose non-valid characters we want to remove.
      * @return The in String, stripped of non-valid characters.
      */
-    public static String stripNonValidXMLCharacters(String in) {
-        StringBuffer out = new StringBuffer(); // Used to hold the output.
+    public static String stripNonValidXMLCharacters(final String in) {
+        final StringBuffer out = new StringBuffer(); // Used to hold the output.
         char current; // Used to reference the current character.
 
         if (in == null || ("".equals(in)))
@@ -311,11 +288,6 @@ public class JsonMapperHelper {
             this.enable(WRITE_ENUMS_USING_TO_STRING);
             // Uses Enum.toString() for deserialization of an Enum
             this.enable(READ_ENUMS_USING_TO_STRING);
-
-            // this.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
-            // this.setPropertyNamingStrategy(new CamelCaseNamingStrategy());
-            // this.getDeserializationConfig().findMixInClassFor(InpNodeBase.class);
-            // this.configure(SerializationFeature.INDENT_OUTPUT, true);
         }
     }
 }

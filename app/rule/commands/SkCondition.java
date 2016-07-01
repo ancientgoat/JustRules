@@ -28,16 +28,10 @@ public class SkCondition {
 	@JsonProperty("finally")
 	private SkElse skFinally;
 
-	/**
-	 *
-	 */
 	public SkIf getSkIf() {
 		return skIf;
 	}
 
-	/**
-	 *
-	 */
 	public void setSkIf(@NotNull SkIf inSkIf) {
 		skIf = inSkIf;
 	}
@@ -107,7 +101,7 @@ public class SkCondition {
 	/**
 	 * Run the if/then/else
 	 */
-	public Boolean run(SkRuleRunner inRunner) {
+	public Boolean run(final SkRuleRunner inRunner) {
 		Boolean returnAnswer = null;
 		if (null != this.skIf) {
 			returnAnswer = this.skIf.run(inRunner);

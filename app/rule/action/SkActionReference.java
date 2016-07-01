@@ -22,7 +22,7 @@ public class SkActionReference extends SkAction {
 	}
 
 	@Override
-	public void run(SkRuleRunner inRunner) {
+	public void run(final SkRuleRunner inRunner) {
 		inRunner.executeAction(this.actionref);
 	}
 }

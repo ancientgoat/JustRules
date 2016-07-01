@@ -9,18 +9,24 @@ import java.util.Map;
  */
 public interface SkActionCustom<A extends SkActionCustom> {
 
-	/**
-	 *
-	 */
-	public void setMap(Map<String, Object> inMap);
+    /**
+     * Set a map of values to pass to the Custom Action.
+     *
+     * @param inMap
+     */
+    void setMap(Map<String, Object> inMap);
 
-	/**
-	 *
-	 */
-	public void run(SkRuleRunner inRunner);
+    /**
+     * Run this action.
+     *
+     * @param inRunner
+     */
+    void run(SkRuleRunner inRunner);
 
-	/**
-	 *
-	 */
-	A newInstance();
+    /**
+     * Make a new instance of this class.
+     *
+     * @return
+     */
+    A newInstance();
 }

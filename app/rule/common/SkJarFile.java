@@ -39,19 +39,13 @@ public class SkJarFile implements SkJsonReader<JarEntry> {
 		entryList.add(inEntry);
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public Integer size() {
 		return entryList.size();
 	}
 
-	/**
-	 *
-	 */
 	@Override
-	public String entryToString(JarEntry inJarEntry) {
+	public String entryToString(final JarEntry inJarEntry) {
 		try {
 			return IOUtils.toString(jarFile.getInputStream(inJarEntry), "UTF-8");
 		} catch (Exception e) {
@@ -59,9 +53,6 @@ public class SkJarFile implements SkJsonReader<JarEntry> {
 		}
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public Stream<JarEntry> stream() {
 		return this.entryList.stream();

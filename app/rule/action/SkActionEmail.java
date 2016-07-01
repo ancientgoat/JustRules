@@ -3,7 +3,7 @@ package rule.action;
 import rule.run.SkRuleRunner;
 
 /**
- *
+ * This un-tested class could be an action to send an email.
  */
 public class SkActionEmail extends SkAction {
 

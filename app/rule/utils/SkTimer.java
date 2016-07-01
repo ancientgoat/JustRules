@@ -1,7 +1,7 @@
 package rule.utils;
 
 /**
- *
+ * Simple timer - to keep track of how long things execute.
  */
 public class SkTimer {
 

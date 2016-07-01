@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
- *
+ * References to conditions.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SkConditionRefs {

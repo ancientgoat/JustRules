@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * A single normal Breadcrumb, meant to help trace the path through an executed set of rules.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SkBreadcrumb {
@@ -140,7 +140,7 @@ public class SkBreadcrumb {
      */
     public String getLogMessage() {
 
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
 
         if (null != this.description || null != this.result || null != this.error || null != this.exception) {
             if (null != this.expression) {

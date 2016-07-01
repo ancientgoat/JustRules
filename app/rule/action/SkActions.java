@@ -12,123 +12,87 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- *
+ * Holder of a list of actions.
  */
 @JsonRootName("actions")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SkActions {
 
-	@JsonProperty("action")
-	private List<SkAction> actionList;
+    @JsonProperty("action")
+    private List<SkAction> actionList;
 
-	@JsonProperty("postaction")
-	private List<SkAction> postActionList;
+    @JsonProperty("postaction")
+    private List<SkAction> postActionList;
 
-	@JsonProperty("expressions")
-	private SkExpressions expressions;
+    @JsonProperty("expressions")
+    private SkExpressions expressions;
 
-	/**
-	 *
-	 */
-	@JsonProperty("expression")
-	public void addExpression(@NotNull SkExpression inExpression) {
-		if (null == this.expressions) {
-			this.expressions = new SkExpressions();
-		}
-		this.expressions.addExpression(inExpression);
-	}
+    @JsonProperty("expression")
+    public void addExpression(final @NotNull SkExpression inExpression) {
+        if (null == this.expressions) {
+            this.expressions = new SkExpressions();
+        }
+        this.expressions.addExpression(inExpression);
+    }
 
-	/**
-	 *
-	 */
-	public List<SkAction> getActionList() {
-		return actionList;
-	}
+    public List<SkAction> getActionList() {
+        return actionList;
+    }
 
-	/**
-	 *
-	 */
-	public List<SkAction> getPostActionList() {
-		return postActionList;
-	}
+    public List<SkAction> getPostActionList() {
+        return postActionList;
+    }
 
-	/**
-	 *
-	 */
-	public void setActionList(@NotNull List<SkAction> inActionList) {
-		actionList = inActionList;
-	}
+    public void setActionList(final @NotNull List<SkAction> inActionList) {
+        actionList = inActionList;
+    }
 
-	/**
-	 *
-	 */
-	public void setPostActionList(@NotNull List<SkAction> inPostActionList) {
-		postActionList = inPostActionList;
-	}
+    public void setPostActionList(final @NotNull List<SkAction> inPostActionList) {
+        postActionList = inPostActionList;
+    }
 
-	/**
-	 *
-	 */
-	public void addAction(@NotNull SkAction inAction) {
-		initList();
-		this.actionList.add(inAction);
-	}
+    public void addAction(@NotNull SkAction inAction) {
+        initList();
+        this.actionList.add(inAction);
+    }
 
-	/**
-	 *
-	 */
-	public void addPostAction(@NotNull SkAction inPostAction) {
-		initPostList();
-		this.postActionList.add(inPostAction);
-	}
+    public void addPostAction(final @NotNull SkAction inPostAction) {
+        initPostList();
+        this.postActionList.add(inPostAction);
+    }
 
-	/**
-	 *
-	 */
-	private void initList() {
-		if (null == actionList) {
-			this.actionList = Lists.newArrayList();
-		}
-	}
+    private void initList() {
+        if (null == actionList) {
+            this.actionList = Lists.newArrayList();
+        }
+    }
 
-	/**
-	 *
-	 */
-	private void initPostList() {
-		if (null == postActionList) {
-			this.postActionList = Lists.newArrayList();
-		}
-	}
+    private void initPostList() {
+        if (null == postActionList) {
+            this.postActionList = Lists.newArrayList();
+        }
+    }
 
-	/**
-	 *
-	 */
-	public SkExpressions getExpressions() {
-		return expressions;
-	}
+    public SkExpressions getExpressions() {
+        return expressions;
+    }
 
-	/**
-	 *
-	 */
-	public void setExpressions(@NotNull SkExpressions inExpressions) {
-		expressions = inExpressions;
-	}
+    public void setExpressions(final @NotNull SkExpressions inExpressions) {
+        expressions = inExpressions;
+    }
 
-	/**
-	 *
-	 */
-	public void run(final SkRuleRunner inRunner) {
-		// Actions first - then Expressions.
-		if (null != this.actionList) {
-			for (SkAction localAction : this.actionList) {
-				if (null != localAction) {
-					localAction.run(inRunner);
-				}
-			}
-		}
-		// Expressions.
-		if (null != this.expressions) {
-			this.expressions.run(inRunner);
-		}
-	}
+    public void run(final SkRuleRunner inRunner) {
+        // Actions first - then Expressions.
+        if (null != this.actionList) {
+            for (SkAction localAction : this.actionList) {
+                if (null != localAction) {
+                    localAction.run(inRunner);
+                }
+            }
+        }
+        // Expressions.
+        if (null != this.expressions) {
+            this.expressions.run(inRunner);
+        }
+    }
 }

@@ -1,9 +1,5 @@
 package rule.common;
 
-/**
- *
- */
-
 import com.google.common.collect.Sets;
 import org.apache.commons.io.IOUtils;
 
@@ -29,25 +25,16 @@ public class SkJsonWalkDir implements FileVisitor<Path>, SkJsonReader<Path> {
 	private SkJsonWalkDir() {
 	}
 
-	/**
-	 *
-	 */
-	public SkJsonWalkDir(@NotNull File inTopDir) {
+	public SkJsonWalkDir(final @NotNull File inTopDir) {
 		initInstance(inTopDir, new SkJsonFilenameFilter() {
 		});
 	}
 
-	/**
-	 *
-	 */
-	public SkJsonWalkDir(@NotNull File inTopDir, @NotNull SkJsonFilenameFilter inFilenameFilter) {
+	public SkJsonWalkDir(final @NotNull File inTopDir, final @NotNull SkJsonFilenameFilter inFilenameFilter) {
 		initInstance(inTopDir, inFilenameFilter);
 	}
 
-	/**
-	 *
-	 */
-	private void initInstance(File inTopDir, SkJsonFilenameFilter inFilenameFilter) {
+	private void initInstance(final File inTopDir, final SkJsonFilenameFilter inFilenameFilter) {
 		if (!inTopDir.exists()) {
 			throw new IllegalArgumentException(
 					String.format("The directory '%s' doesn't exist", inTopDir.getAbsolutePath()));
@@ -60,24 +47,15 @@ public class SkJsonWalkDir implements FileVisitor<Path>, SkJsonReader<Path> {
 		}
 	}
 
-	/**
-	 *
-	 */
 	public Set<Path> getJsonPaths() {
 		return jsonPaths;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public FileVisitResult preVisitDirectory(final Path dir, final BasicFileAttributes attrs) throws IOException {
 		return CONTINUE;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public FileVisitResult visitFile(final Path inPath, final BasicFileAttributes attrs) throws IOException {
 		String fullFilename = inPath.toFile()
@@ -88,25 +66,16 @@ public class SkJsonWalkDir implements FileVisitor<Path>, SkJsonReader<Path> {
 		return CONTINUE;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public FileVisitResult visitFileFailed(final Path file, final IOException exc) throws IOException {
 		return CONTINUE;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public FileVisitResult postVisitDirectory(final Path dir, final IOException exc) throws IOException {
 		return CONTINUE;
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public String entryToString(Path inEntry) {
 		// Autoclosable is pretty neat!
@@ -117,17 +86,11 @@ public class SkJsonWalkDir implements FileVisitor<Path>, SkJsonReader<Path> {
 		}
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public Integer size() {
 		return this.jsonPaths.size();
 	}
 
-	/**
-	 *
-	 */
 	@Override
 	public Stream<Path> stream() {
 		return this.jsonPaths.stream();

@@ -1,7 +1,7 @@
 package rule.commands;
 
 /**
- * Hmmm.  Where did this class go?
+ * Finally of an if/then/else/finally condition.
  */
 public class SkFinally extends SkThenElseBase {
 }

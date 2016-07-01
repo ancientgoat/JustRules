@@ -4,7 +4,7 @@ import ch.qos.logback.classic.Level;
 
 
 /**
- *
+ * Different levels of breadcrumbs.  Might be helpful by filtering.
  */
 public enum SkBreadcrumbType {
 	BC_ERROR(Level.ERROR), BC_WARN(Level.WARN), BC_INFO(Level.INFO), BC_DEBUG(Level.DEBUG),

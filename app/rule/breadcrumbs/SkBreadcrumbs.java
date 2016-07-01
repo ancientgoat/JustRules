@@ -1,7 +1,6 @@
 package rule.breadcrumbs;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import rule.common.JsonMapperHelper;
 import rule.expression.SkExpression;
@@ -9,10 +8,9 @@ import rule.expression.SkExpression;
 import java.util.List;
 
 import static rule.breadcrumbs.SkBreadcrumbType.*;
-import static rule.common.JsonMapperHelper.beanToJsonPretty;
 
 /**
- *
+ * Holder of zero or more breadcrumbs.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SkBreadcrumbs {
@@ -60,8 +58,8 @@ public class SkBreadcrumbs {
 		addCrumb(crumb);
 		return crumb;
 	}
-	/////////////////////////////////////////////////////////////////////////////////
 
+	/////////////////////////////////////////////////////////////////////////////////
 	public SkBreadcrumb addAlertCrumb(final String inError, Exception inException) {
 		SkBreadcrumb crumb = new SkBreadcrumb(inError, inException, BC_ALERT);
 		addCrumb(crumb);
@@ -91,8 +89,8 @@ public class SkBreadcrumbs {
 		addCrumb(crumb);
 		return crumb;
 	}
-	/////////////////////////////////////////////////////////////////////////////////
 
+	/////////////////////////////////////////////////////////////////////////////////
 	public SkBreadcrumb addAlertCrumb(final String inDescription, Object inResult) {
 		SkBreadcrumb crumb = new SkBreadcrumb(inDescription, inResult, BC_ALERT);
 		addCrumb(crumb);
@@ -128,6 +126,7 @@ public class SkBreadcrumbs {
 		addCrumb(crumb);
 		return crumb;
 	}
+
 	/////////////////////////////////////////////////////////////////////////////////
 	public SkBreadcrumb addAlertCrumb(final SkExpression inExpression, Object inResult) {
 		SkBreadcrumb crumb = new SkBreadcrumb(inExpression, inResult, BC_ALERT);
@@ -164,6 +163,7 @@ public class SkBreadcrumbs {
 		addCrumb(crumb);
 		return crumb;
 	}
+
 	/////////////////////////////////////////////////////////////////////////////////
 	public SkBreadcrumb addAlertCrumb(String inDesc, SkExpression inExpression, Object inResult) {
 		SkBreadcrumb crumb = new SkBreadcrumb(inDesc, inExpression, inResult, BC_ALERT);

@@ -9,7 +9,8 @@ import rule.run.SkRuleRunner;
 import java.util.List;
 
 /**
- *
+ * The purpose of this action is to run expressions, and thus populating the SpEL context
+ * 	with new values.
  */
 public class SkActionData extends SkAction {
 
