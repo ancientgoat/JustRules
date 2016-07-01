@@ -23,13 +23,3 @@ To run this project, just navigate to the root of this project and run:
 ```
 sbt run
 ```
-
-TODO
-* Git commit messages
-x* sofi database (to 'test')
-x* import order - static on top
-2* javadoc
-2* final
-* source formatting in rules
-X* hashcode, equals, and toString for entities
-2* no log is Enabled ifs
